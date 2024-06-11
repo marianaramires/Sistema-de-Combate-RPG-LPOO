@@ -1,4 +1,4 @@
-abstract class Personagem {
+public abstract class Personagem {
     private String nomeTipo;
     private double saude;
     private double forca;
@@ -37,10 +37,10 @@ abstract class Personagem {
 
     public void printStatus() {
         if(this.estaMorto()){
-            System.out.printf("%s [Morreu, Forca: %d, Destreza: %d, %s]\n", this.nomeTipo, 
+            System.out.printf("%s [Morto, Forca: %.1f, Destreza: %.1f, %s]\n", this.nomeTipo, 
             this.forca, this.destreza, this.arma.getNome());
         } else{
-            System.out.printf("%s [Saude: $d, Forca: %d, Destreza: %d, %s]\n", this.nomeTipo, 
+            System.out.printf("%s [Saude: %.1f, Forca: %.1f, Destreza: %.1f, %s]\n", this.nomeTipo, 
             this.saude, this.forca, this.destreza, this.arma.getNome());
         }
     }
@@ -57,18 +57,15 @@ abstract class Personagem {
                 if(this.destreza > b.destreza){ // ATAQUE BEM SUCEDIDO - nao eh defendido
                     double dano = this.calculaDano();
                     b.recebeDano(dano);
-                    System.out.printf("O ataque foi efetivo com %d pontos de dano!\n", dano);
+                    System.out.printf("O ataque foi efetivo com %.1f pontos de dano!\n", dano);
                 } else if(this.destreza < b.destreza){ // ATAQUE MAL SUCEDIDO - defendido e revidado por B
                     double dano = b.calculaDano();
                     this.recebeDano(dano);
-                    System.out.printf("O ataque foi inefetivo e revidado com %d pontos de dano!\n", dano);
+                    System.out.printf("O ataque foi inefetivo e revidado com %.1f pontos de dano!\n", dano);
                 } else if (this.destreza == b.destreza){ // ATAQUE DEFENDIDO
                     System.out.println("O ataque foi defendido, ninguem se machucou!\n");
                 }
             }
-
-            this.printStatus();
-            b.printStatus();
         }    
     }
 
