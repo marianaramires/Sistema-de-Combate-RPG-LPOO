@@ -1,3 +1,4 @@
+package src;
 public abstract class Personagem {
     private String nomeTipo;
     private double saude;

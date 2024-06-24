@@ -1,3 +1,4 @@
+package src;
 public abstract class Arma {
     private String nome;
     private double modDano;
